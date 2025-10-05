@@ -62,30 +62,21 @@ def nombre_cara (mot):
 
 mot = input("entrez le mot: ")
 print(nombre_cara(mot))
-
-
-
-#F7
-def fibonacci (n):
-    un = 1
-    jn = 1
-    for i in range(1, n):
-        vn = un
-        un = un + jn
-        jn = i
-        print(f"{un}") 
-
-n = int(input("entrez le nombre : "))
-print(fibonacci(n))
-
 """
 
+
+#F7 version non recursive
 def fibonacci (n):
-    while n>0:
-        un = 1
-        jn = 1
-        un = un + jn
-    return fibonacci(n-1)
+    un = 0
+    bn = 1
+    for i in range(n):
+        temp = un
+        un = bn
+        bn = un + temp
+        
+    return un  
 
 n = int(input("entrez le nombre : "))
-print(fibonacci(n))
+
+print(f"la suite de fibonacci donne: {fibonacci(n)}")
+
