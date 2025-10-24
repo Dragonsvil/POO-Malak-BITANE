@@ -1,0 +1,69 @@
+from tkinter import * 
+window = Tk()
+window.title("tk")
+window.geometry("400x300")
+
+#numero 1
+name_label1 = Label(window, text = "Enter Num 1 : ")
+name_label1.grid(column = 0, row = 0, sticky='w')
+v1 = StringVar()
+
+name_entry1 = Entry(window, textvariable = v1, width=20)
+name_entry1.focus_set()
+name_entry1.grid(column=1, row=0, sticky='sw', columnspan=1, padx=10)
+
+
+#numero 2
+name_label2 = Label(window, text = "Enter Num 2 : ")
+name_label2.grid(column = 0, row = 1, sticky='w')
+v2 = StringVar()
+
+name_entry2 = Entry(window, textvariable = v2, width=20)
+name_entry2.focus_set()
+name_entry2.grid(column=1, row=1, sticky='sw', columnspan=1, padx=10)
+
+
+#numero 3
+name_label3 = Label(window, text = "The Sum is : ")
+name_label3.grid(column = 0, row = 2, sticky='w')
+v3 = StringVar()
+
+entry3 = Entry(window, textvariable=v3, state="readonly")
+entry3.grid(row=2, column=1)
+def calcul():
+    num1 = v1.get().strip()
+    num2 = v2.get().strip()
+
+    v3_value = int(num1) + int(num2)
+
+    entry3.config(state="normal")
+    entry3.delete(0, "end")
+    entry3.insert(0, v3_value)
+    entry3.config(state="readonly")
+
+
+
+
+send_button = Button(window, text = "Show", pady=2, command= calcul())
+send_button.grid(column=1, row=3, sticky='sw', pady=20)
+
+quit_button = Button(window, text = "Quit", pady=2, command=window.quit)
+quit_button.grid(column=0, row=3, sticky='sw', pady=20)
+
+window.mainloop()
+
+"""
+base de donnee qui ne depasse pas 3 tables
+exp : un etudiant fait un projet donné par un tuteur
+travailler avec sqlite3
+creation des tables
+fonction qui permettent de manipuler (afficher, inserer, supprimer...)
+    par ex une seule fonction afficher qui s'adaptent selon la table, donc on doit entrer en argument le nom de la table
+    meme chose pour les autres fonction
+    fonction avec nombre de parametre indefini (avec etoile) pour le cas de la fonction insertion car elle n'est pas simple comme l'affichage
+fair une interfaces graphique pour utiliser ses fonction
+une interface de manipulation de la base de donnée
+delai: 15 jours
+seance prochaine: pas de cours
+    
+"""
